@@ -7,8 +7,6 @@ static void RCC_Encoder_R_Config(void);
 static void GPIO_Encoder_R_Config(void);
 
 
-void TIM_Configuration(void);//TIM configuration
-
 static void RCC_Encoder_L_Config(void)
 {
   //TIM_Encoder_L clock enable
@@ -46,8 +44,6 @@ void TIM_Encoder_L_Config(void)
   TIM_Cmd(TIM3,ENABLE);
 
 }
-
-
 
 static void RCC_Encoder_R_Config(void)
 {
