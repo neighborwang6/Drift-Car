@@ -7,12 +7,14 @@ static void RCC_Encoder_R_Config(void);
 static void GPIO_Encoder_R_Config(void);
 
 
+void TIM_Configuration(void);//TIM configuration
+
 static void RCC_Encoder_L_Config(void)
 {
   //TIM_Encoder_L clock enable
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);
-
+	
   //AFIO clock enable
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);
 
@@ -45,6 +47,8 @@ void TIM_Encoder_L_Config(void)
 
 }
 
+
+
 static void RCC_Encoder_R_Config(void)
 {
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1,ENABLE);
@@ -64,11 +68,11 @@ static void GPIO_Encoder_R_Config(void)
 
 }
 
-
 void TIM_Encoder_R_Config(void)
 {
   RCC_Encoder_R_Config();
   GPIO_Encoder_R_Config();
+  
   //TIM1
   TIM_EncoderInterfaceConfig(TIM1,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising,TIM_ICPolarity_Rising); 
 
